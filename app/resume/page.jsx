@@ -2,7 +2,7 @@
 
 import React from 'react'
 import {FaHtml5 , FaCss3 , FaJs , FaReact , FaNodeJs , FaBootstrap } from "react-icons/fa"
-import {SiTailwindcss , SiNextdotjs , SiMongodb , SiPostman , SiRedux , SiSocketdotio} from "react-icons/si"
+import {SiTailwindcss , SiNextdotjs , SiMongodb , SiPostman , SiRedux , SiSocketdotio , SiExpress , SiGraphql  } from "react-icons/si"
 import { Tabs , TabsContent , TabsList , TabsTrigger } from '@/components/ui/tabs'
 import { Tooltip , TooltipContent , TooltipProvider , TooltipTrigger } from '@/components/ui/tooltip'
 import { ScrollArea } from '@radix-ui/react-scroll-area'
@@ -132,6 +132,14 @@ const skills = {
     {
       icon : <SiRedux/> ,
       name : "Redux toolkit"
+    },
+    {
+      icon : <SiExpress/> ,
+      name : "Express Js"
+    },
+    {
+      icon : <SiGraphql/> ,
+      name : "Graph ql"
     },
   ]
 }

@@ -221,7 +221,7 @@ const Resume = () => {
 
                           {education.items.map((item , index) => (
 
-                            <li className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
+                            <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
 
                               <span className='text-accent'>{item.duration}</span>
 

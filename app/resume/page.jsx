@@ -74,7 +74,7 @@ const education = {
   title : "My Education" , 
   items : [
     {
-      institution : "Computer Information System" ,
+      institution : "Computer Information System - JU" ,
       degree : "Bachelor's degree" ,
       duration : "2019-2023"
     }
@@ -228,8 +228,8 @@ const Resume = () => {
                               <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
 
                               <div className='flex items-center gap-1'>
-                                <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                <p className='text-white/60'>{item.institution}</p>
+                                {/* <span className='w-[6px] h-[6px] rounded-full bg-accent'></span> */}
+                                <p className='text-sm text-white/60 text-md'>{item.institution}</p>
                               </div>
 
                             </li>

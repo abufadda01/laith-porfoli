@@ -1,3 +1,4 @@
+"use client"
 import Photo from "@/components/Photo";
 import Socials from "@/components/Socials";
 import Stats from "@/components/Stats";
@@ -7,6 +8,16 @@ import Services from "./services/page";
 
 
 export default function Home() {
+
+  const handleDownload = () => {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = '/assets/cv.pdf'; 
+    downloadLink.download = 'Laith_Abu_Fadda_CV.pdf';
+    downloadLink.target = '_blank';
+    downloadLink.click();
+  }; 
+
+
   return (
     <>
       <section className="h-full">
@@ -26,10 +37,13 @@ export default function Home() {
 
               <div className="flex flex-col xl:flex-row items-center gap-8">
 
-                  <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-                    <span>Donwload CV</span>
-                    <FiDownload className="text-xl"/>
-                  </Button>
+              <button
+                  onClick={handleDownload}
+                  className="uppercase flex items-center gap-2 border border-accent rounded-lg px-4 py-2 text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </button>
 
                   <div className="mb-8 xl:mb-0">
                     <Socials containerStyle="flex gap-6" iconsStyle="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500" />

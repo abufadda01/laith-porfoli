@@ -84,6 +84,14 @@ const projects = [
     image : "/assets/work/pro-11.png",
     github : "https://github.com/abufadda01/eat-n-split"     
   },
+  {
+    num : "10" ,
+    category : "Fullstack",
+    title : "X clone" ,
+    stack : [{name : "React JS"} , {name : "Tailwind css" } , {name : "Javascript"} , {name : "tanstack"} , {name : "shadcn ui"} , {name : "Node JS"} , {name : "Express JS"} , {name : "Mongo DB"}] ,
+    image : "/assets/work/pro-17.png",
+    github : "https://github.com/abufadda01/twitter-clone"     
+  },
 ]
 
 

@@ -1,10 +1,11 @@
 "use client"
 
 import React from 'react'
-
+import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import emailjs from '@emailjs/browser';
 
 import { 
   Select , 
@@ -40,6 +41,45 @@ const info = [
 ]
 
 
+const {register , handleSubmit , formState : {errors}} = useForm()
+
+
+
+const sendEmail = (params) => {
+
+  emailjs
+    .send(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, params, {
+      publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+      limitRate : {
+        throttle : 5000
+      }
+    } )
+    .then(
+      () => {
+        console.log('SUCCESS!');
+      },
+      (error) => {
+        console.log('FAILED...', error.text);
+      },
+    );
+};
+
+
+
+const onSubmit = data => {
+
+  const templateParams = {
+    to_name : "Laith" ,
+    from_name : data.name + data.last_name ,
+    from_email : data.email,
+    from_phone : data.phone,
+    message : data.message
+  }
+
+  sendEmail(templateParams)
+}
+
+
 
 
 const Contact = () => {
@@ -52,15 +92,15 @@ const Contact = () => {
 
             <div className='xl:h-[54%] order-2 xl:order-none'>
 
-              <form className='flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl'>
+              <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl'>
 
                 <h3 className='text-4xl mb-2 text-accent'>Let's work together</h3>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                  <Input type="firstname" placeholder="Firstname"/>
-                  <Input type="lastname" placeholder="Lastname"/>
-                  <Input type="email" placeholder="name@example.com"/>
-                  <Input type="phone" placeholder="phone number"/>
+                  <Input {...register("name" , {required : true})} type="firstname" placeholder="Firstname"/>
+                  <Input {...register("last_name" , {required : true})} type="lastname" placeholder="Lastname"/>
+                  <Input {...register("email" , {required : true})} type="email" placeholder="name@example.com"/>
+                  <Input type="phone" {...register("phone" , {required : true})} placeholder="phone number"/>
                 </div>
 
                 
@@ -87,7 +127,7 @@ const Contact = () => {
                 </Select>
 
 
-                <Textarea className="h-[200px]" placeholder="Type your message here"/>
+                <Textarea {...register("message" , {required : true})} className="h-[200px]" placeholder="Type your message here"/>
 
                 <Button size="md" className="max-w-40 p-2">Send message</Button>
 

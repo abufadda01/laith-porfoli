@@ -44,6 +44,31 @@ const info = [
 
 
 
+
+
+
+
+const Contact = () => {
+
+  const {register , handleSubmit , formState : {errors}} = useForm()
+  
+  const onSubmit = data => {
+  
+    const templateParams = {
+      to_name : "Laith" ,
+      from_name : data.name ,
+      from_email : data.email,
+      from_phone : data.phone,
+      message : data.message
+    }
+    
+    sendEmail(templateParams)
+  }
+  
+
+
+  
+
 const sendEmail = (params) => {
   
   emailjs
@@ -65,27 +90,6 @@ const sendEmail = (params) => {
 
 
 
-const onSubmit = data => {
-  
-  const templateParams = {
-    to_name : "Laith" ,
-    from_name : data.name + data.last_name ,
-    from_email : data.email,
-    from_phone : data.phone,
-    message : data.message
-  }
-  
-  sendEmail(templateParams)
-}
-
-
-
-
-const Contact = () => {
-
-  const {register , handleSubmit , formState : {errors}} = useForm()
-  
-  
   return (
     <motion.section className='py-6' initial={{opacity : 0}} animate={{opacity : 1 , transition : {delay : 2.4 , duration : 0.4 , ease : "easeIn"}}}>
 
@@ -132,7 +136,7 @@ const Contact = () => {
 
                 <Textarea {...register("message" , {required : true})} className="h-[200px]" placeholder="Type your message here"/>
 
-                <Button size="md" className="max-w-40 p-2">Send message</Button>
+                <Button type="submit" size="md" className="max-w-40 p-2">Send message</Button>
 
               </form>
 

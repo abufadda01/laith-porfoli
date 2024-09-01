@@ -88,6 +88,7 @@ const sendEmail = (params) => {
   );
 };
 
+console.log(errors);
 
 
   return (

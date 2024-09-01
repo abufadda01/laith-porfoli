@@ -41,33 +41,32 @@ const info = [
 ]
 
 
-const {register , handleSubmit , formState : {errors}} = useForm()
 
 
 
 const sendEmail = (params) => {
-
+  
   emailjs
-    .send(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, params, {
-      publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
-      limitRate : {
-        throttle : 5000
-      }
-    } )
-    .then(
-      () => {
-        console.log('SUCCESS!');
-      },
-      (error) => {
-        console.log('FAILED...', error.text);
-      },
-    );
+  .send(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, params, {
+    publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+    limitRate : {
+      throttle : 5000
+    }
+  } )
+  .then(
+    () => {
+      console.log('SUCCESS!');
+    },
+    (error) => {
+      console.log('FAILED...', error.text);
+    },
+  );
 };
 
 
 
 const onSubmit = data => {
-
+  
   const templateParams = {
     to_name : "Laith" ,
     from_name : data.name + data.last_name ,
@@ -75,7 +74,7 @@ const onSubmit = data => {
     from_phone : data.phone,
     message : data.message
   }
-
+  
   sendEmail(templateParams)
 }
 
@@ -83,6 +82,10 @@ const onSubmit = data => {
 
 
 const Contact = () => {
+
+  const {register , handleSubmit , formState : {errors}} = useForm()
+  
+  
   return (
     <motion.section className='py-6' initial={{opacity : 0}} animate={{opacity : 1 , transition : {delay : 2.4 , duration : 0.4 , ease : "easeIn"}}}>
 

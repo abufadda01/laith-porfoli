@@ -92,6 +92,30 @@ const projects = [
     image : "/assets/work/pro-17.png",
     github : "https://github.com/abufadda01/twitter-clone"     
   },
+  {
+    num : "10" ,
+    category : "Fullstack",
+    title : "X clone" ,
+    stack : [{name : "React JS"} , {name : "Tailwind css" } , {name : "Javascript"} , {name : "tanstack"} , {name : "shadcn ui"} , {name : "Node JS"} , {name : "Express JS"} , {name : "Mongo DB"}] ,
+    image : "/assets/work/pro-17.png",
+    github : "https://github.com/abufadda01/twitter-clone"     
+  },
+  {
+    num : "11" ,
+    category : "Fullstack",
+    title : "LMS" ,
+    stack : [{name : "React JS"} , {name : "Tailwind css" } , {name : "Javascript"} , {name : "tanstack"} , {name : "shadcn ui"} , {name : "Node JS"} , {name : "Express JS"} , {name : "Mongo DB"} , {name : "SCORM API"}] ,
+    image : "/assets/work/lms.png",
+    github : "https://github.com/abufadda01/LMS"     
+  },
+  {
+    num : "12" ,
+    category : "Fullstack",
+    title : "Currency Convertor" ,
+    stack : [{name : "React JS"} , {name : "Tailwind css" } , {name : "Javascript"} , {name : "tanstack"} , {name : "shadcn ui"} , {name : "Node JS"} , {name : "Express JS"} , {name : "Mongo DB"} , {name : "Currency API"}] ,
+    image : "/assets/work/currency.png",
+    github : "https://github.com/abufadda01/currency-convertor-mern"     
+  },
 ]
 
 

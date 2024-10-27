@@ -7,6 +7,8 @@ import { Tabs , TabsContent , TabsList , TabsTrigger } from '@/components/ui/tab
 import { Tooltip , TooltipContent , TooltipProvider , TooltipTrigger } from '@/components/ui/tooltip'
 import { ScrollArea } from '@radix-ui/react-scroll-area'
 import { motion } from 'framer-motion'
+import { BiLogoPostgresql } from "react-icons/bi";
+import { DiRedis } from "react-icons/di";
 
 
 const about = {
@@ -122,6 +124,10 @@ const skills = {
       name : "Mongo DB"
     },
     {
+      icon : <BiLogoPostgresql/> ,
+      name : "Postgres DB"
+    },
+    {
       icon : <SiPostman/> ,
       name : "Postman"
     },
@@ -148,6 +154,10 @@ const skills = {
     {
       icon : <SiTypescript/> ,
       name : "Typescript"
+    },
+    {
+      icon : <DiRedis/> ,
+      name : "Redis"
     },
   ]
 }
